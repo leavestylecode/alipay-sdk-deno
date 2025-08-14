@@ -1,0 +1,44 @@
+{
+  "name": "@leavestylecode/alipay-sdk-deno",
+  "version": "1.0.0",
+  "description": "Alipay SDK for Deno - A comprehensive TypeScript SDK for Alipay Open Platform APIs, fully compatible with Deno, Supabase Edge Functions, and other Deno runtimes.",
+  "license": "MIT",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "imports": {
+    "@std/crypto": "jsr:@std/crypto@^1.0.3",
+    "@std/encoding": "jsr:@std/encoding@^1.0.5"
+  },
+  "tasks": {
+    "test": "deno test --allow-all tests/",
+    "fmt": "deno fmt",
+    "lint": "deno lint",
+    "check": "deno check mod.ts"
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/", "tests/", "mod.ts"],
+    "exclude": ["node_modules/", "dist/"]
+  },
+  "lint": {
+    "include": ["src/", "tests/", "mod.ts"],
+    "exclude": ["node_modules/", "dist/"],
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "compilerOptions": {
+    "allowJs": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitOverride": true
+  }
+}
