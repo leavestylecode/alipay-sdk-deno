@@ -14,6 +14,11 @@ export { AlipaySdk } from './src/alipay.ts';
 export { AlipayApis } from './src/apis.ts';
 export { CertUtils, CertificateManager } from './src/cert_utils.ts';
 
+// 导入用于扩展类
+import { AlipaySdk } from './src/alipay.ts';
+import { AlipayApis } from './src/apis.ts';
+import type { AlipaySdkConfig } from './src/types.ts';
+
 // 类型导出
 export type {
   AlipaySdkConfig,

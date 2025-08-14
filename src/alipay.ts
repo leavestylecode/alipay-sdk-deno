@@ -99,7 +99,7 @@ export class AlipaySdk {
     params: IRequestParams = {},
     options: ISdkExecuteOptions = {}
   ): Promise<AlipayCommonResult> {
-    const requestParams = this.buildRequestParams(method, params, options);
+    const requestParams = await this.buildRequestParams(method, params, options);
     const requestUrl = this.buildRequestUrl(requestParams);
     
     try {
@@ -113,12 +113,12 @@ export class AlipaySdk {
   /**
    * 生成页面跳转数据
    */
-  pageExec(
+  async pageExec(
     method: string,
     params: IPageExecuteParams = {},
     options: ISdkExecuteOptions = {}
-  ): string {
-    const requestParams = this.buildRequestParams(method, params, options);
+  ): Promise<string> {
+    const requestParams = await this.buildRequestParams(method, params, options);
     const httpMethod = params.method || 'POST';
     
     if (httpMethod === 'GET') {
@@ -163,11 +163,11 @@ export class AlipaySdk {
   /**
    * 构建请求参数
    */
-  private buildRequestParams(
+  private async buildRequestParams(
     method: string,
     params: IRequestParams,
     options: ISdkExecuteOptions
-  ): Record<string, string> {
+  ): Promise<Record<string, string>> {
     const { bizContent, needEncrypt, ...otherParams } = params;
     
     // 基础参数

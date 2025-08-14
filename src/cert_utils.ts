@@ -59,7 +59,7 @@ export class CertUtils {
   /**
    * 解析证书信息（简化版本）
    */
-  private static parseCertificate(certContent: string): CertificateInfo {
+  static parseCertificate(certContent: string): CertificateInfo {
     // 这是一个简化的证书解析实现
     // 在实际使用中，你可能需要使用完整的 X.509 证书解析库
     

@@ -172,10 +172,10 @@ export async function importPrivateKey(
   };
   
   // 根据密钥类型选择格式
-  const format = keyType === 'PKCS1' ? 'pkcs1' : 'pkcs8';
+  const format: KeyFormat = keyType === 'PKCS1' ? 'pkcs8' : 'pkcs8'; // PKCS1 在Web Crypto中不直接支持，都使用PKCS8
   
   return await crypto.subtle.importKey(
-    format as KeyFormat,
+    format,
     keyBuffer,
     algorithm,
     false,
